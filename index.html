@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alike+Angular&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <title>unnatural nature</title>
+
+<style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Instrument Serif', serif;
+            background: #000000;
+        }
+
+        .title-img{
+            position:absolute;
+            z-index: 1;
+            padding:30px;
+            width:40%;
+        }
+
+        /* Left */
+        .nav {
+            width: 20%;
+            background-color: none;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            color: #c6c6c6;
+            margin-top: 20%;
+        }
+
+
+        .nav .accordion-header {
+            font-style: 'Instrument Serif';
+            text-decoration-line: solid 1px;
+            font-style: italic;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #4CFF76;
+            text-decoration: underline 1px;
+        }
+
+        .accordion-content {
+     font-family: "Noto Sans KR", serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+            padding-top: 5px;
+            max-height: 0;
+            line-height: 1.5;
+            letter-spacing: -0.1px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            font-size: 1rem;
+        }
+
+
+        .nav .accordion-header:hover +.accordion-content {
+            max-height: 300px;
+            margin-bottom: 12px;
+            color: #4CFF76
+        }
+
+        /* Right Content Area */
+
+        .content {
+            width: 80%;
+            
+        }
+
+
+        .book-placement{
+            height:85%;
+            width: 85%;
+            margin:60px;
+            margin-left:70px;
+            display: flex;
+            position: relative;
+            align-content: center;
+            
+        }
+
+        .video-placeholder {
+            width: 50%;
+            background-color: #C0C0C0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #333;
+            font-style: italic;
+        }
+
+        /* Book-like Right Panel */
+        .book-panel {
+            width: 50%;
+            background-color: #fff;
+            padding: 30px 30px 40px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 1px solid #000;
+            position: relative;
+        }
+
+        .book-header {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .book-section {
+            font-style: 'Noto Sans KR';
+            font-weight: 200;
+            flex: 1;
+            display: none;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .book-section.active {
+            display: flex;
+        }
+
+        .book-title{margin-bottom: 30px}
+
+        .book-section h2 {
+            font-size: 3rem;
+            font-style: italic;
+            line-height: 0.6;
+            margin-bottom: 40px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .book-section p {
+            font-family: "Noto Sans KR", serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            text-indent: 20px;
+            margin-bottom: 10px;
+            color: #555;
+            margin-right: 20px;
+        }
+
+
+        .book-footer {
+            text-align: right;
+            margin-right: 20px;
+            font-size: 1rem;
+            font-style: italic;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .book-footer::after {
+            content: " \2192";
+        }
+
+        .tab-header {
+            display: flex;
+            gap: 20px;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #000;
+        }
+
+        .tab-header .tab {
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-header .tab.active {
+            color: #000;
+        }
+
+        .left{width:50%;}
+        .right{width:50%; margin-left:50%;}
+
+        mark {background-color: transparent;
+            font-style: normal;
+            font-size: 0.7rem;
+            text-indent: 6px;
+         }
+
+</style>
+
+</head>
+<body>
+    <img class="title-img" src="title-img-2.png">   
+
+ <!--left -->
+ <div class="nav">
+        <div class="nav-contents">
+        <div class="accordion-item">
+            <div class="accordion-header">about</div>
+            <div class="accordion-content">
+                <p>자연스럽지 않은 자연.<br>인간들이 자연스럽다고 하는 모습들은 대부분 자연 그대로의 모습을 담아내지 않는다. 해변가의 통제구역, 공원의 산책로, 등산로의 계단 등 우리가 자연이라며 접하는 공간은 대체로 인간의 통제하에 경험하게 되는 자연이다. 자연물을 재료로 삼았던 즉, 자연스럽지 않은 자연스러움이었다. 따라서 인간과 자연이 공존하며 생기는 이러한 아이러니함을 웹사이트로 표현하였다.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">traces</div>
+
+            <div class="accordion-content">
+                <p>흔적은 무작위적이다. 인간에게서 온 재료들과 자연에게서 온 재료들을 사용하여 흔적을 남긴다.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">dive-in</div>
+            <div class="accordion-content">
+                <p>통제가 불가능한 자연 속으로 들어가본다. 대신 작은 상자 속 우리는 자유롭다. 손을 흔들어 자연을 느껴보자.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">designer</div>
+            <div class="accordion-content">
+                <p>신예은 YEEUN SHIN <br>@sye_ing</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- Right-->
+    <div class="content">
+        <div class="book-placement">
+         <!-- Left Placeholder -->
+        <div class="left-page video-placeholder">
+            <img id="gif" src="01.gif" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+
+        <!-- Right Book Panel -->
+        <div class="right-page book-panel">
+            <div class="book-header">unnatural nature</div>
+
+            <div class="tab-header">
+                <div class="tab active left">01</div>
+                <div class="tab ">02</div>
+            </div>
+
+            <div class="book-section active left">
+                <div class="book-title">
+                <h2>traces<br><mark>흔적을 남기다</h2>
+                </div>
+                <p>흔적은 무작위적이다. 인간에게서 온 흔적들과 자연에게서 온 흔적들을 이용해 자유롭게 나만의 흔적을 남겨본다.</p>
+                <p>Traces are made randomly. Using traces from humans and traces from nature freely leave your own marks.
+                </p>
+                <div class="book-footer">go</div>
+            </div>
+
+            <div class="book-section right">
+                <div class="book-title">
+                <h2>dive-in <br><mark>자연에 몰입하다</h2>
+                </div>
+                <p>통제가 불가능한 자연 속으로 들어가본다. 대신 작은 상자 속 우리는 자유롭다. 손을 흔들어 자연을 느껴보자. </p>
+                <p>Entering the uncontrollable nature. We can still experience nature freely inside the controlled space reflecting the real world. Don’t worry about any life-threatening situations. Even if it happens, this is just a website.</p>
+
+                <div class="book-footer">go</div>
+            </div>
+
+        
+    </div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+            const tabs = document.querySelectorAll(".tab");
+            const sections = document.querySelectorAll(".book-section");
+            const gif = document.getElementById("gif");
+            const goButtons = document.querySelectorAll(".book-footer");
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener("click", () => {
+                    tabs.forEach(t => t.classList.remove("active"));
+                    sections.forEach(s => s.classList.remove("active"));
+
+                    tab.classList.add("active");
+                    sections[index].classList.add("active");
+
+                    gif.src = index === 0 ? "01.gif" : "02.gif"; // Change GIF source based on the selected tab
+                });
+            });
+
+            goButtons.forEach((button, index) => {
+                button.addEventListener("click", () => {
+                    const targetPage = index === 0 ? "https://yeeungrace.github.io/01_traces/" : "http://www.google.com";
+                    window.location.href = targetPage;
+                });
+            });
+        });
+</script>
+
+</body>
+</html>
